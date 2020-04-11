@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+apply from: '../global_config.gradle'
+
+android {
+    defaultConfig {
+        applicationId "com.lcfarm.android.componentsample"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(path: ':base')
+
+    if(!rootProject.ext.isHomeApplication){
+        implementation project(path: ':home')
+    }
+
+    if(!rootProject.ext.isFindApplication){
+        implementation project(path: ':find')
+    }
+
+    if(!rootProject.ext.isAccountApplication){
+        implementation project(path: ':account')
+    }
+
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}

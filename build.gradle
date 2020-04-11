@@ -1,0 +1,70 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    ext {
+        isHomeApplication = false//home 首页模块开关，false:作为Lib组件存在， true:作为application存在
+        isFindApplication = true//find 发现模块开关，false:作为Lib组件存在， true:作为application存在
+        isAccountApplication = false//account 账户模块开关，false:作为Lib组件存在， true:作为application存在
+
+        android = [
+                compileSdkVersion: 28,
+                buildToolsVersion: "28.0.3",
+                minSdkVersion    : 16,
+                targetSdkVersion : 28,
+                versionCode      : 100,
+                versionName      : "1.0.0"
+        ]
+
+        version = [
+                androidXSdkVersion: "1.1.0",
+                retrofitSdkVersion: "2.4.0",
+                glideSdkVersion   : "4.8.0",
+                canarySdkVersion  : "1.5.4",
+                constraintVersion : "1.1.3",
+                navigation        : "2.1.0"
+        ]
+
+        dependencies = [
+                //support
+                "appcompat"              : "androidx.appcompat:appcompat:${version["androidXSdkVersion"]}",
+                "constraintlayout"       : "androidx.constraintlayout:constraintlayout:${version["constraintVersion"]}",
+                "navigation-fragment"       : "androidx.navigation:navigation-fragment:${version["navigation"]}",
+                "navigation-ui"       : "androidx.navigation:navigation-ui:${version["navigation"]}",
+                "lifecycle-extensions"       : "androidx.lifecycle:lifecycle-extensions:${version["navigation"]}",
+                "multidex"               : "androidx.support:multidex:1.0.1",
+                //network
+                "retrofit"               : "com.squareup.retrofit2:retrofit:${version["retrofitSdkVersion"]}",
+                "retrofit-converter-gson": "com.squareup.retrofit2:converter-gson:${version["retrofitSdkVersion"]}",
+                "retrofit-adapter-rxjava": "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitSdkVersion"]}",
+                //router
+                "router"                 : "com.alibaba:arouter-api:1.5.0",
+                "router-compiler"        : "com.alibaba:arouter-compiler:1.2.2"
+        ]
+    }
+
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.3'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
