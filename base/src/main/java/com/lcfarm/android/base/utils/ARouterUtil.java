@@ -13,13 +13,7 @@ import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 /**
- * <pre>
- *     @author 杨充
- *     blog  : https://github.com/yangchong211
- *     time  : 2017/01/30
- *     desc  : ARouter路由跳转工具类
- *     revise:
- * </pre>
+ * ARouter工具类
  */
 public class ARouterUtil {
 
